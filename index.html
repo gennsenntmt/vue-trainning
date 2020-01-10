@@ -10,22 +10,31 @@
 </head>
 
 <body>
-  <h2>クリックしたらカウントアップ</h2>
   <div id="app">
-    <p>{{count}}回</p>
-    <button v-on:click="countUp">カウント</button>
+    <input type="checkbox" v-model="myCheck">
+    <p>チェックボックスは、{{myCheck}}</p>
+    <br>
+    <textarea v-model="myText"></textarea>
+    <p>{{myText}}</p>
+    <p>{{myText.length}}字</p>
+    <br>
+    <select v-model="myColor">
+      <option>red</option>
+      <option>green</option>
+      <option>blue</option>
+    </select>
+    <p v-bind:style="{color:myColor}">あなたが選んだのは、{{myColor}}です</p>
+    <br>
+    
   </div>
 
   <script>
     new Vue ({
       el: "#app",
       data: {
-        count: 0
-      },
-      methods: {
-        countUp: function(){
-          this.count++;
-        }
+        myCheck:'チェックされていません',
+        myText: '',
+        myColor:''
       }
     })
   </script>
